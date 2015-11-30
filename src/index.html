@@ -1,9 +1,27 @@
+<!DOCTYPE html>
+<html>
 <head>
 	<title>Angular OMDB Project</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
 	<!-- Your scripts here -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="js/app.js"></script>
+    <script src="js/routes.js"></script>
+    <script src="js/controllers/searchCtrl.js"></script>
+    <script src="js/controllers/listCtrl.js"></script>
+    <script src="js/factory/myOMDBFactory.js"></script>
+    
 </head>
-<body>
-It Runs!!!!!
+<body ng-app="myModule">
+    <nav>
+        <ul>
+            <li><a ui-sref="search">search</a></li>
+            <li><a ui-sref="myList">list</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <ui-view></ui-view>
+    </div>
 </body>
+</html>

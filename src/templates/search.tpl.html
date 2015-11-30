@@ -1,0 +1,20 @@
+<div>
+    <h1>{{pageTitle}}</h1>
+    <input class="searchText" ng-model="searchText" type="text">
+    <button class="search" ui-sref="search" ng-click="searchFunction()"></button>
+</div>
+
+<div class="flex-container">
+    <div class="flex-item"><img class="movie-poster" src="{{movie.Poster}}"></div>
+    <div class="flex-item">
+        <h2 class="title">{{movie.Title}}</h2>, {{movie.Year}}
+        <p><span>Released on:</span> {{movie.Released}} ({{movie.Runtime}})</p>
+        <p class="width-50">{{movie.Plot}}</p>
+    </div>
+    <div class="flex-item">
+        <h1>Related Searches</h1>
+        <ul ng-repeat="related in related">
+            <li><span class="related-title">{{related.Title}}</span>, <span class="related-year">{{related.Year}}</span></li>
+        </ul>
+    </div>
+</div>
