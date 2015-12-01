@@ -1,31 +1,21 @@
-button.search {
-    width: 40px;
-    height: 21px;
-    background: url(img/magnifying-glass34.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    margin-left: -5px;
-    margin-bottom: 10px;
-    padding: 5px;
-    border: 1px solid grey;
-}
-
-input.searchText {
-    margin-bottom: 10px;
-}
-
-.flex-container {
-    display: flex;
-    margin: 10px;
-}
-
-.flex-item {
-    margin: 0 10px;
+body {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/bg-sky.png);
+  background-repeat: repeat !important;
+  background-attachment: fixed;
 }
 
 .movie-poster {
     width: 150px;
-    border: none;
+    float: left;
+    margin-left: 0;
+}
+
+h1 {
+    margin: 0;
+}
+
+.container {
+    margin-top: 10px;
 }
 
 .title{
@@ -43,13 +33,19 @@ input.searchText {
     color: cadetblue;
     font-size: 1em;
     display: inline-block;
+    cursor: pointer;
 }
 
-.flex-box ul {
-    margin-left: 0;
-    padding-left: 0;
+span.tag {
+    background-color: deepskyblue;
+    margin: 5px;
+    padding: 3px;
+    border-radius: 2px;
+    font-size: 11px;
+    color: white;
+    font-weight: 700;
 }
 
-.width-50 {
-    width: 50%;
+.related-header {
+    font-size: 34px;
 }

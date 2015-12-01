@@ -3,7 +3,7 @@ angular.module('myModule').controller('searchCtrl', ['$scope', 'omdbFactory',
         $scope.pageTitle = "Search Movies";
         
         $scope.searchFunction = function(){
-            omdbFactory.titleSearch($scope.searchText).then(
+            omdbFactory.titleSearch($scope.searchText, "").then(
                 function(success) {
                     $scope.movie = success.data;
                 },

@@ -1,20 +1,34 @@
-<div>
+<div class="container">
     <h1>{{pageTitle}}</h1>
-    <input class="searchText" ng-model="searchText" type="text">
-    <button class="search" ui-sref="search" ng-click="searchFunction()"></button>
+    <div class="container col-sm-6">
+        <div class="input-group">
+            <input type="text" class="form-control" ng-model="searchText" placeholder="Search for...">
+            <span class="input-group-btn">
+                <button class="btn btn-default" ng-click="searchFunction(search)" type="button">Go!</button>
+            </span>
+        </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
 </div>
 
-<div class="flex-container">
-    <div class="flex-item"><img class="movie-poster" src="{{movie.Poster}}"></div>
-    <div class="flex-item">
-        <h2 class="title">{{movie.Title}}</h2>, {{movie.Year}}
-        <p><span>Released on:</span> {{movie.Released}} ({{movie.Runtime}})</p>
-        <p class="width-50">{{movie.Plot}}</p>
-    </div>
-    <div class="flex-item">
-        <h1>Related Searches</h1>
-        <ul ng-repeat="related in related">
-            <li><span class="related-title">{{related.Title}}</span>, <span class="related-year">{{related.Year}}</span></li>
-        </ul>
+<div class="container">
+    <div class="row">
+        <div class="container col-sm-8">
+            <img class="movie-poster col-sm-2" src="{{movie.Poster}}">
+            <h2 class="title">{{movie.Title}}</h2>, {{movie.Year}}
+            <p><span>Released on:</span> {{movie.Released}} ({{movie.Runtime}})</p>
+            <p>{{movie.Plot}}</p>
+            <div class="extras">
+                <span class="tag">Genre</span>{{movie.Genre}}<br>
+                <span class="tag">Director</span>{{movie.Director}}<br>
+                <span class="tag">Writer</span>{{movie.Writer}}<br>
+                <span class="tag">Actors</span>{{movie.Actors}}<br>
+            </div>
+        </div>
+        <div class="container col-sm-4">
+            <h1 class="related-header">Related Searches</h1>
+            <ul ng-repeat="related in related">
+                <li><span ng-click="titleSearch('{{related.Title}}', '{{related.Year}}')" class="related-title">{{related.Title}}</span></a>, <span class="related-year">{{related.Year}}</span></li>
+            </ul>
+        </div>
     </div>
 </div>
