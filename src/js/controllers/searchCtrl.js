@@ -20,5 +20,23 @@ angular.module('myModule').controller('searchCtrl', ['$scope', 'omdbFactory',
                 }
             );
         };
+        $scope.updateClick = function(title, year){
+            omdbFactory.titleSearch(title, year).then(
+                function(success) {
+                    $scope.movie = success.data;
+                },
+                function(error) {
+                    $scope.movie = error;
+                }
+            );
+            omdbFactory.generalSearch(title).then(
+                function(sucess) {
+                    $scope.related = sucess.data.Search;
+                },
+                function(error) {
+                    $scope.related = error;
+                }
+            );
+        }
     }
 ]);
