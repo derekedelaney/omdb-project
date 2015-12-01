@@ -1,9 +1,9 @@
-angular.module('myModule').controller('searchCtrl', ['$scope', 'omdbFactory',
-    function($scope, omdbFactory){
+angular.module('myModule').controller('searchCtrl', ['$scope', 'omdbFactory', 'myListFactory', 'toastr',
+    function($scope, omdbFactory, myListFactory, toastr){
         $scope.pageTitle = "Search Movies";
         
         $scope.searchFunction = function(){
-            omdbFactory.titleSearch($scope.searchText, "").then(
+            omdbFactory.titleSearch($scope.searchText).then(
                 function(success) {
                     $scope.movie = success.data;
                 },
@@ -20,8 +20,10 @@ angular.module('myModule').controller('searchCtrl', ['$scope', 'omdbFactory',
                 }
             );
         };
-        $scope.updateClick = function(title, year){
-            omdbFactory.titleSearch(title, year).then(
+
+        $scope.updateClick = function(movieId, title){
+            $scope.searchText = "";
+            omdbFactory.imdbSearch(movieId).then(
                 function(success) {
                     $scope.movie = success.data;
                 },
@@ -37,6 +39,11 @@ angular.module('myModule').controller('searchCtrl', ['$scope', 'omdbFactory',
                     $scope.related = error;
                 }
             );
-        }
+        };
+
+        $scope.addMovie = function(movie){
+            myListFactory.addMovie(movie);
+            toastr.success('Successfully added ' + movie.Title + ' to your list');
+        };
     }
 ]);

@@ -9,12 +9,12 @@
     </div><!-- /input-group -->
 </div><!-- /.col-lg-6 -->
 
-<div class="container">
+<div ng-show="movie" class="container">
     <div class="row">
         <div class="container col-sm-8">
             <img class="movie-poster" src="{{movie.Poster}}">
             <h2 class="title">{{movie.Title}}</h2>, {{movie.Year}}
-            <button class="btn btn-primary pull-right">Add to collection</button>
+            <button class="btn btn-primary pull-right" ng-click="addMovie(movie)">Add to collection</button>
             <p><span movie-released>Released on:</span> {{movie.Released}} ({{movie.Runtime}})</p>
             <p>{{movie.Plot}}</p>
             <div class="extras">
@@ -25,14 +25,16 @@
             </div>
             <div class="ratings">
                 <div>Ratings:</div>
-                <div>IMDb Rating: <span class="rating-tag">{{movie.imdbRating}}</span></div>
-                <div>Rotten Tomatoes: <span class="rating-tag">{{movie.tomatoRating}}</span></div>
+                <div ng-show="movie.imdbRating >= 5">IMDb Rating: <span class="good-rating-tag">{{movie.imdbRating}}</span></div>
+                <div ng-show="movie.tomatoRating >= 5">Rotten Tomatoes: <span class="good-rating-tag">{{movie.tomatoRating}}</span></div>
+                <div ng-show="movie.imdbRating < 5">IMDb Rating: <span class="bad-rating-tag">{{movie.imdbRating}}</span></div>
+                <div ng-show="movie.tomatoRating < 5">Rotten Tomatoes: <span class="bad-rating-tag">{{movie.tomatoRating}}</span></div>
             </div>
         </div>
         <div class="container col-sm-4">
             <h1 class="related-header">Related Searches</h1>
             <ul ng-repeat="related in related">
-                <li><span ng-click="updateClick(related.Title, related.Year)" class="related-title">{{related.Title}}</span></a>, <span class="related-year">{{related.Year}}</span></li>
+                <li><span ng-click="updateClick(related.imdbID)" class="related-title">{{related.Title}}</span></a>, <span class="related-year">{{related.Year}}</span></li>
             </ul>
         </div>
     </div>

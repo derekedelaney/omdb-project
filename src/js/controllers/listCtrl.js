@@ -1,6 +1,11 @@
-angular.module('myModule').controller('listCtrl', ['$scope', 'omdbFactory',
-    function($scope, omdbFactory){
+angular.module('myModule').controller('listCtrl', ['$scope', 'myListFactory',
+    function($scope, myListFactory){
         $scope.pageTitle = "My Movies";
+        $scope.movies = myListFactory.getMovies();
 
+        $scope.removeMovie = function(movieId){
+            myListFactory.removeMovie(movieId);
+            $scope.movies = myListFactory.getMovies();
+        }
     }
 ]);

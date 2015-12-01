@@ -6,16 +6,20 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
 	<!-- Your scripts here -->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-strap/2.3.6/angular-strap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-strap/2.3.6/angular-strap.tpl.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="js/app.js"></script>
     <script src="js/routes.js"></script>
     <script src="js/controllers/searchCtrl.js"></script>
     <script src="js/controllers/listCtrl.js"></script>
     <script src="js/factory/myOMDBFactory.js"></script>
-    
+    <script src="js/factory/myListFactory.js"></script>
+    <script src="../node_modules/angular-toastr/dist/angular-toastr.tpls.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../node_modules/angular-toastr/dist/angular-toastr.min.css">
 </head>
 <body ng-app="myModule">
-    <nav class="navbar navbar-inverse navbar-static-top">
+    <nav class="navbar navbar-inverse navbar-static-top" role="navigation" bs-navbar>
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -25,14 +29,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">OMDB</a>
+                <a class="navbar-brand" href="#">myOMDB</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a ui-sref="search">Search <span class="sr-only">(current)</span></a></li>
-                    <li><a ui-sref="myList">List</a></li>
+                    <li data-match-route="/myList"><a ui-sref="myList">List</a></li>
+                    <li data-match-route="/search"><a ui-sref="search">Search</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->

@@ -56,8 +56,16 @@ span.tag {
     font-weight: bold;
 }
 
-.rating-tag {
+.good-rating-tag {
     background-color: aquamarine;
+    border-radius: 2px;
+    font-weight: 600;
+    padding: 3px;
+    font-size: 11px;
+}
+
+.bad-rating-tag {
+    background-color: darksalmon;
     border-radius: 2px;
     font-weight: 600;
     padding: 3px;
@@ -67,4 +75,14 @@ span.tag {
 ul {
     padding-left: 20px;
     list-style: circle;
+}
+
+.rated {
+    padding: 6px;
+    background-color: darkgray;
+    color: white;
+    border-radius: 5px;
+    margin-left: 20px;
+    font-size: 12px;
+    font-weight: 700;
 }

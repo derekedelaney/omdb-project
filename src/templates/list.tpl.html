@@ -1,1 +1,33 @@
 <h1>{{pageTitle}}</h1>
+<p ng-show="movies.length == 0">Looks like you dont have any movies in your list. Try <a ui-sref="search">searching</a> for one and adding it.</p>
+<div class="panel-group" ng-model="multiplePanels.activePanels" data-allow-multiple="true" role="tablist" aria-multiselectable="true" bs-collapse>
+    <div class="panel panel-default" ng-repeat="movie in movies">
+        <div class="panel-heading" role="tab">
+            <button type="button" class="close" ng-click="removeMovie(movie.imdbID)" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="panel-title" bs-collapse-toggle>
+                {{ movie.Title }}, {{movie.Year}} <span class="rated">{{movie.Rated}}</span>
+            </h4>
+
+        </div>
+        <div class="panel-collapse" role="tabpanel" bs-collapse-target>
+            <div class="panel-body">
+                <img class="movie-poster" src="{{movie.Poster}}">
+                <p><span movie-released>Released on:</span> {{movie.Released}} ({{movie.Runtime}})</p>
+                <p>{{movie.Plot}}</p>
+                <div class="extras">
+                    <span class="tag">Genre</span>{{movie.Genre}}<br>
+                    <span class="tag">Director</span>{{movie.Director}}<br>
+                    <span class="tag">Writer</span>{{movie.Writer}}<br>
+                    <span class="tag">Actors</span>{{movie.Actors}}<br>
+                </div>
+                <div class="ratings">
+                <div>Ratings:</div>
+                    <div ng-show="movie.imdbRating >= 5">IMDb Rating: <span class="good-rating-tag">{{movie.imdbRating}}</span></div>
+                    <div ng-show="movie.imdbRating >= 5">Rotten Tomatoes: <span class="good-rating-tag">{{movie.tomatoRating}}</span></div>
+                    <div ng-show="movie.imdbRating < 5">IMDb Rating: <span class="bad-rating-tag">{{movie.imdbRating}}</span></div>
+                    <div ng-show="movie.imdbRating < 5">Rotten Tomatoes: <span class="bad-rating-tag">{{movie.tomatoRating}}</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
