@@ -4,7 +4,7 @@
     <div class="input-group">
         <input type="text" class="form-control" ng-model="searchText" placeholder="Search for...">
         <span class="input-group-btn">
-            <button class="btn btn-default" ng-click="searchFunction(search)" type="button"><i class="glyphicon glyphicon-search"></i></button>
+            <button class="btn btn-primary" ng-click="searchFunction(search)" type="button"><i class="glyphicon glyphicon-search"></i></button>
         </span>
     </div><!-- /input-group -->
 </div><!-- /.col-lg-6 -->
@@ -14,6 +14,7 @@
         <div class="container col-sm-8">
             <img class="movie-poster" src="{{movie.Poster}}">
             <h2 class="title">{{movie.Title}}</h2>, {{movie.Year}}
+            <button class="btn btn-primary pull-right">Add to collection</button>
             <p><span movie-released>Released on:</span> {{movie.Released}} ({{movie.Runtime}})</p>
             <p>{{movie.Plot}}</p>
             <div class="extras">
