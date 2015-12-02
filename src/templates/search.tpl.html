@@ -10,9 +10,9 @@
 </div><!-- /.col-lg-6 -->
 
 <div ng-show="movie" class="container">
-    <div class="row">
+    <div ng-show="!movie.Error" class="row">
         <div class="container col-sm-8">
-            <img class="movie-poster" src="{{movie.Poster}}">
+            <img ng-show="movie.Poster != 'N/A'" class="movie-poster" src="{{movie.Poster}}">
             <h2 class="title">{{movie.Title}}</h2>, {{movie.Year}}
             <button class="btn btn-primary pull-right" ng-click="addMovie(movie)">Add to collection</button>
             <p><span movie-released>Released on:</span> {{movie.Released}} ({{movie.Runtime}})</p>
@@ -34,7 +34,7 @@
         <div class="container col-sm-4">
             <h1 class="related-header">Related Searches</h1>
             <ul ng-repeat="related in related">
-                <li><span ng-click="updateClick(related.imdbID)" class="related-title">{{related.Title}}</span></a>, <span class="related-year">{{related.Year}}</span></li>
+                <li><span ng-click="updateClick(related.imdbID, related.Title)" class="related-title">{{related.Title}}</span></a>, <span class="related-year">{{related.Year}}</span></li>
             </ul>
         </div>
     </div>

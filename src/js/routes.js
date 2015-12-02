@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('myModule').config(['$stateProvider', '$urlRouterProvider', 
-    function($stateProvider, $urlRouterProvider){
+angular.module('myModule').config(['$stateProvider', '$urlRouterProvider', 'toastrConfig',
+    function($stateProvider, $urlRouterProvider, toastrConfig){
 
         $urlRouterProvider.otherwise('/search');
 
@@ -13,6 +13,13 @@ angular.module('myModule').config(['$stateProvider', '$urlRouterProvider',
             url:'/myList',
             templateUrl: 'templates/list.tpl.html',
             controller: 'listCtrl'
+        });
+
+        angular.extend(toastrConfig, {
+            positionClass: 'toast-top-center',
+            tapToDismiss: true,
+            closeButton: true,
+            closeHtml: '<button>&times;</button>'
         });
 
 }]);

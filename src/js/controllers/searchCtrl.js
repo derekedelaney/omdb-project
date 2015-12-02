@@ -6,9 +6,13 @@ angular.module('myModule').controller('searchCtrl', ['$scope', 'omdbFactory', 'm
             omdbFactory.titleSearch($scope.searchText).then(
                 function(success) {
                     $scope.movie = success.data;
+                    if ($scope.movie.Response == 'False'){
+                        toastr.error($scope.searchText + ' was not found.')
+                    }
                 },
                 function(error) {
                     $scope.movie = error;
+                    toastr.error('Error Message: ' + error);
                 }
             );
             omdbFactory.generalSearch($scope.searchText).then(
