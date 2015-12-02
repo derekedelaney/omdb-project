@@ -20,11 +20,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body ng-app="myModule">
-    <nav class="navbar navbar-inverse navbar-static-top" role="navigation" bs-navbar>
+    <nav class="navbar navbar-inverse navbar-static-top" role="navigation" bs-navbar bs-collapse>
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" bs-collapse-toggle>
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -34,7 +34,7 @@
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" bs-collapse-target>
                 <ul class="nav navbar-nav">
                     <li data-match-route="/myList"><a ui-sref="myList">List</a></li>
                     <li data-match-route="/search"><a ui-sref="search">Search</a></li>
