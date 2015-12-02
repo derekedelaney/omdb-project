@@ -37,13 +37,16 @@ h1 {
 
 span.tag {
     background-color: deepskyblue;
-    margin: 5px;
+    margin-top: 2px;
+    margin-bottom: 2px;
     margin-left: 0;
+    margin-right: 4px;
     padding: 3px;
     border-radius: 2px;
     font-size: 11px;
     color: white;
     font-weight: 700;
+    display: inline-block;
 }
 
 .related-header {
@@ -77,11 +80,12 @@ ul {
 }
 
 .rated {
-    padding: 6px;
+    padding: 5px;
     background-color: darkgray;
     color: white;
     border-radius: 5px;
     margin-left: 20px;
     font-size: 12px;
-    font-weight: 700;
+    font-weight: bolder;
+    display: inline-block;
 }
