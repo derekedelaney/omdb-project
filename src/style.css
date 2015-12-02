@@ -5,9 +5,8 @@ body {
 }
 
 .movie-poster {
-    width: 150px;
     float: left;
-    margin-right: 15px;
+    margin-left: -1em;
 }
 
 h1 {

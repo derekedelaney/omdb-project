@@ -12,9 +12,9 @@
 <div ng-show="movie" class="container">
     <div ng-show="!movie.Error" class="row">
         <div class="container col-sm-8">
-            <img ng-show="movie.Poster != 'N/A'" class="movie-poster" src="{{movie.Poster}}">
-            <h2 class="title">{{movie.Title}}</h2>, {{movie.Year}}
+            <img ng-show="movie.Poster != 'N/A'" class="movie-poster col-sm-3" src="{{movie.Poster}}">
             <button class="btn btn-primary pull-right" ng-click="addMovie(movie)">Add to collection</button>
+            <h2 class="title">{{movie.Title}}</h2>, {{movie.Year}}
             <p><span movie-released>Released on:</span> {{movie.Released}} ({{movie.Runtime}})</p>
             <p>{{movie.Plot}}</p>
             <div class="extras">
