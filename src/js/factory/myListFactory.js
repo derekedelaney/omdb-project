@@ -14,6 +14,14 @@ angular.module('myModule').factory('myListFactory', [
                         movies.splice(i, 1);
                     }
                 }
+            },
+            hasMovie:function(movie){
+                for (var i in movies){
+                    if(movies[i].imdbID == movie.imdbID){
+                        return true;
+                    }
+                    else return false;
+                }
             }
         };
     }

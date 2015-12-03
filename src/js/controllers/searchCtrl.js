@@ -46,8 +46,13 @@ angular.module('myModule').controller('searchCtrl', ['$scope', 'omdbFactory', 'm
         };
 
         $scope.addMovie = function(movie){
-            myListFactory.addMovie(movie);
-            toastr.success('Successfully added ' + movie.Title + ' to your list');
+            if(myListFactory.hasMovie(movie)){
+                toastr.error("Movie already exist");
+            }else{
+                myListFactory.addMovie(movie);
+                toastr.success('Successfully added ' + movie.Title + ' to your list');
+            }
+
         };
     }
 ]);
